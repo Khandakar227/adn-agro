@@ -1,27 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Viga&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+    body {
+        @apply font-pt-sans;
+    }
+}
+@layer components {
+    .nav-btn {
+        @apply text-text-medium flex items-center justify-center gap-1 hover:font-bold;
+    }
+    .nav-btn:hover > svg {
+        @apply stroke-2;
+    }
+    .nav-active {
+        @apply font-bold;
+    }
+    .nav-active:hover > svg {
+        @apply stroke-2;
+    }
+    .bg-apple {
+        background-image: url("/Apple Mask.png");
+        background-repeat: no-repeat;
+        background-position: right top;
+        @apply sm:bg-contain bg-cover;
+    }
+    .bg-oval {
+        background-image: url("/Oval Mask.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: contain;
+    }
+    .cart-item-count {
+        @apply text-xs px-2 py-1 rounded-2xl bg-primary text-white absolute top-[-8px] right-[-8px];
+    }
+    .horizontal-items {
+        @apply grid gap-4 grid-auto-col-45 grid-flow-col overflow-x-scroll snap-x-mandatory scroll-p-4;
+    }
+    .horizontal-items > * {
+        scroll-snap-align: start;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+    .grid-auto-col-45 {
+        grid-auto-columns: 30%;
+    }
+    .snap-x-mandatory {
+        scroll-snap-type: x mandatory;
+    }
 }

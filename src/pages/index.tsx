@@ -1,4 +1,6 @@
 import BannerSection from "@/components/Home/BannerSection"
+import ContactSection from "@/components/Home/ContactSection"
+import FeatureSection from "@/components/Home/FeatureSection"
 import HeaderSection from "@/components/Home/HeaderSection"
 import ProductSection from "@/components/Home/ProductSection"
 import SaleSection from "@/components/Home/SaleSection"
@@ -13,6 +15,8 @@ export default function Home() {
         <SaleSection/>
         <BannerSection/>
         <ProductSection/>
+        <FeatureSection/>
+        <ContactSection/>
       </main>
     </>
   )

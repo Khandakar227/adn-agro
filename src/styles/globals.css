@@ -32,7 +32,22 @@
         background-image: url("/Oval Mask.svg");
         background-repeat: no-repeat;
         background-position: right center;
-        background-size: contain;
+        @apply bg-cover md:bg-contain;
+
+    }
+    .bg-red-oval {
+        background-image: url("/Red Oval Mask.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        @apply bg-cover md:bg-contain;
+
+    }
+    .bg-orange-oval {
+        background-image: url("/Orange Oval Mask.svg");
+        background-repeat: no-repeat;
+        background-position: right center;
+        @apply bg-cover md:bg-contain;
+
     }
     .cart-item-count {
         @apply text-xs px-2 py-1 rounded-2xl bg-primary text-white absolute top-[-8px] right-[-8px];

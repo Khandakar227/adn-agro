@@ -2,7 +2,7 @@ import { IconType } from "react-icons";
 import { TbTruck } from "react-icons/tb";
 import { FaRegClock } from "react-icons/fa";
 import { TbSeeding } from "react-icons/tb";
-import SaleItem from "../SaleItem";
+import SaleItem from "../ProductCard";
 import SaleItemCarousal, { CarouselItem } from "./SaleItemCarousel";
 
 

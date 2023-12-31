@@ -8,3 +8,8 @@ export const categories = [
   { label: "Farm products", id: 7 },
   { label: "Own Productions", id: 8 },
 ];
+
+export type Category = {
+  label: string;
+  id: number;
+}

@@ -7,9 +7,9 @@ type ItemProps = {
     discountPrice: number;
 }
 
-export default function SaleItem(props:ItemProps) {
+export default function ProductCard(props:ItemProps) {
   return (
-    <div className="w-max max-w-64">
+    <div className="w-max max-w-64 mx-auto">
         <div className="relative z-0">
             <img className="rounded-lg w-full" src={props.image} alt={props.name} />
             <span className="font-viga absolute top-[1rem] right-0 rounded-l-full px-4 py-2 bg-primary bg-opacity-80">Sale!</span>

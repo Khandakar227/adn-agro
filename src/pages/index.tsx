@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer"
 import BannerSection from "@/components/Home/BannerSection"
 import ContactSection from "@/components/Home/ContactSection"
 import FeatureSection from "@/components/Home/FeatureSection"
@@ -17,6 +18,7 @@ export default function Home() {
         <ProductSection/>
         <FeatureSection/>
         <ContactSection/>
+        <Footer/>
       </main>
     </>
   )

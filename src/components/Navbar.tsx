@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart, AiOutlinePhone, AiOutlineMenu } from "react-icon
 import { FaRegClock } from "react-icons/fa";
 import Seachbar from "./Seachbar";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import useScrollDirection, { ScrollDirection } from "@/hooks/scrollDirection";
 
@@ -18,6 +18,7 @@ const navlinks = [
 
 export default function Navbar() {
     const router = useRouter();
+    const [showDrawer, setShowDrawer] = useState(false);
     const {data:scrollData} = useScrollDirection();
     useEffect(() => {
         console.log(router)
@@ -63,22 +64,51 @@ export default function Navbar() {
             
             <div className="hidden sm:flex gap-3 items-center justify-center">
                 <button className="p-3 rounded-3xl bg-white shadow"><FaRegUser/></button>
-                <div className="relative">
-                    <button className="p-3 rounded-3xl bg-white shadow"><AiOutlineShoppingCart/></button>
-                    <span className="cart-item-count">3</span>
-                </div>
+                <CartItemButton/>
             </div>
-
-            <button className="p-3 rounded-3xl bg-white shadow">
+            <button className="p-3 rounded-3xl bg-white shadow md:hidden" onClick={() => setShowDrawer(true)}>
                 <AiOutlineMenu size={20}/>
             </button>
         </div>
     </div>
     </div>
+    {/* Phone nav drawer */}
+    <div className={`fixed p-8 top-0 right-0 w-full h-full transition-all ${showDrawer ? "z-10" : "delay-500 -z-10"}`}>
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-gray-950 bg-opacity-10" onClick={() => setShowDrawer(false)}></div>
+        <div className={`absolute top-0 right-0 bg-white transition-transform duration-500 shadow border-l h-full min-w-60 ${showDrawer ? "translate-x-0" : "translate-x-full"}`}>
+            <div className="pt-10">
+                {
+                    navlinks.map((link) =>
+                    <Link key={link.label} href={link.href} className={`nav-btn py-2 border ${router.asPath == link.href ? "nav-active" : ""}`}>
+                        <span>{link.label}</span>
+                    </Link>
+                    )
+                }
+                <div className="pt-6 px-6 font-viga text-primary-dark sm:hidden">
+                    <Link href={"/"}className="px-4 block mb-2 flex items-center gap-4">
+                        <span className="rounded-3xl p-3 bg-white shadow inline-block"><FaRegUser/></span>
+                        <span>Profile</span>
+                    </Link>
+                    <Link href={"/"}className="px-4 block mb-2 flex items-center gap-4 pt-2">
+                        <CartItemButton/>
+                        <span>Cart item</span>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </div>
     </>
   )
 }
 
+const CartItemButton = ({className}:{className?:string}) => {
+    return (
+        <div className={`relative ${className}`}>
+            <button className="p-3 rounded-3xl bg-white shadow"><AiOutlineShoppingCart/></button>
+            <span className="cart-item-count">3</span>
+        </div>
+    )
+}
 
 {/* <Link href={"/shop"} className="nav-btn">
 <span>Shops</span>

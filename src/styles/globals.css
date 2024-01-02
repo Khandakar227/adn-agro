@@ -67,4 +67,16 @@
     .snap-x-mandatory {
         scroll-snap-type: x mandatory;
     }
+    .mini-underline {
+        @apply relative pb-3 mb-9;
+    }
+    .mini-underline::after {
+        bottom: 0;
+        left: 0;
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 2px;
+        @apply bg-primary-light;
+    }
 }

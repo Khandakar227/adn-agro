@@ -8,6 +8,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import useScrollDirection, { ScrollDirection } from "@/hooks/scrollDirection";
 
+type NavbarProps = {
+    minScrollYOffset?: number;
+}
+
 const navlinks = [
     { label: "Home", href: "/" },
     { label: "Shops", href: "/shops" },
@@ -16,19 +20,19 @@ const navlinks = [
     { label: "Contact", href: "/contact" },
 ]
 
-export default function Navbar() {
+export default function Navbar(props:NavbarProps) {
     const router = useRouter();
     const [showDrawer, setShowDrawer] = useState(false);
     const {data:scrollData} = useScrollDirection();
     useEffect(() => {
-        console.log(router)
+        console.log(scrollData)
     }, []);
 
 
   return (
     <>
     <div className="fixed top-0 left-0 w-full z-10">
-    <div className={`bg-primary text-xs md:text-sm transition-all ${scrollData.direction == ScrollDirection.DOWN ? 'h-0 p-0' : "p-1"}`}>
+    <div className={`bg-primary text-xs md:text-sm transition-all ${scrollData.direction == ScrollDirection.DOWN && scrollData.postion.y > 0 ? 'h-0 p-0' : "p-1"}`}>
         <div className="flex gap-1 items-center justify-between max-w-4xl mx-auto">
             <div className="flex gap-4 items-center">
                 <FaRegClock/>
@@ -45,10 +49,10 @@ export default function Navbar() {
         </div>
     </div>
 
-    <div className={`py-4 px-4 sticky top-0  transition-all ${scrollData.postion.y > 10 ? 'bg-white shadow' : ""}`}>
-        <div className="flex items-center justify-between gap-8 max-w-4xl mx-auto">
+    <div className={`py-4 px-4 sticky top-0  transition-all ${scrollData.postion.y > (props.minScrollYOffset ?? 10) ? 'bg-[#f4f5f5] shadow' : ""}`}>
+        <div className="flex items-center justify-between gap-8 max-w-5xl mx-auto">
             <Link href={"/"}>
-                <Image src={"/ADN Logo.png"} alt="ADN Logo" height={45} width={71} />
+                <Image src={"/ADN Logo.png"} alt="ADN Logo" height={45} width={71} priority={true} />
             </Link>
             <nav className="hidden gap-6 justify-between items-center md:flex">
                 {

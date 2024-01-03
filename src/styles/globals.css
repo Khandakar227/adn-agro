@@ -80,3 +80,7 @@
         @apply bg-primary-light;
     }
 }
+
+.filter-sidebar {
+    @apply h-screen md:h-auto top-0 left-0 right-0 bottom-0 fixed md:static z-20 md:z-0;
+}

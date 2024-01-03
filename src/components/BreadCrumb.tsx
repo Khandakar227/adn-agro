@@ -13,7 +13,7 @@ export default function BreadCrumb() {
         setRouterPaths(links);
     }, [])
     return (
-    <div className="py-2 text-text-medium mx-auto max-w-4xl text-sm">
+    <div className="p-2 text-text-medium mx-auto max-w-4xl text-sm">
         <Link href={"/"}>Home</Link>
         {
             routePaths.map(link =>

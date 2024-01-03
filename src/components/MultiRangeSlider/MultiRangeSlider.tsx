@@ -3,23 +3,22 @@ import {
   FC,
   useCallback,
   useEffect,
-  useState,
   useRef
 } from "react";
 
 interface MultiRangeSliderProps {
   min: number;
   max: number;
-  onChange: Function;
+  minVal:number, setMinVal: Function,
+  maxVal:number, setMaxVal: Function,
 }
 
 const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
   min,
   max,
-  onChange
+  minVal, setMinVal,
+  maxVal, setMaxVal,
 }) => {
-  const [minVal, setMinVal] = useState(min);
-  const [maxVal, setMaxVal] = useState(max);
   const minValRef = useRef<HTMLInputElement>(null);
   const maxValRef = useRef<HTMLInputElement>(null);
   const range = useRef<HTMLDivElement>(null);
@@ -55,10 +54,6 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
     }
   }, [maxVal, getPercent]);
 
-  // Get min and max values when their state changes
-  useEffect(() => {
-    onChange({ min: minVal, max: maxVal });
-  }, [minVal, maxVal, onChange]);
 
   return (
     <div className="pb-6 relative">

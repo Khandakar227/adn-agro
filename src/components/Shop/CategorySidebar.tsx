@@ -1,12 +1,12 @@
 import { Category, categories } from "@/data/categories";
-import BaleIcon from "@/components/Shops/CategoriesIcon/Bale";
-import DietFoodIcon from "@/components/Shops/CategoriesIcon/DietFoodIcon";
-import HarvestIcon from "@/components/Shops/CategoriesIcon/HarvestIcon";
-import HoneyIcon from "@/components/Shops/CategoriesIcon/HoneyIcon";
-import OliveOil from "@/components/Shops/CategoriesIcon/OliveOil";
-import SeedsIcon from "@/components/Shops/CategoriesIcon/SeedsIcon";
-import SproutIcon from "@/components/Shops/CategoriesIcon/SproutIcon";
-import WheatIcon from "@/components/Shops/CategoriesIcon/WheatIcon";
+import BaleIcon from "@/components/Shop/CategoriesIcon/Bale";
+import DietFoodIcon from "@/components/Shop/CategoriesIcon/DietFoodIcon";
+import HarvestIcon from "@/components/Shop/CategoriesIcon/HarvestIcon";
+import HoneyIcon from "@/components/Shop/CategoriesIcon/HoneyIcon";
+import OliveOil from "@/components/Shop/CategoriesIcon/OliveOil";
+import SeedsIcon from "@/components/Shop/CategoriesIcon/SeedsIcon";
+import SproutIcon from "@/components/Shop/CategoriesIcon/SproutIcon";
+import WheatIcon from "@/components/Shop/CategoriesIcon/WheatIcon";
 import { useFilter } from "@/hooks/useFilter";
 
 const categoryIcons:{[key: number]: JSX.Element} = {

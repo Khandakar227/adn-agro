@@ -2,16 +2,16 @@ import BreadCrumb from "@/components/BreadCrumb"
 import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
 import ProductDetailCard from "@/components/ProductDetailCard"
-import FilterSidebar from "@/components/Shops/FilterSidebar"
-import Pagination from "@/components/Shops/Pagination"
-import SortingButton from "@/components/Shops/SortingButton"
+import FilterSidebar from "@/components/Shop/FilterSidebar"
+import Pagination from "@/components/Shop/Pagination"
+import SortingButton from "@/components/Shop/SortingButton"
 import { FaFilter } from "react-icons/fa";
 import { products } from "@/data/products"
 import { useFilter } from "@/hooks/useFilter"
 import { useSorting } from "@/hooks/useSorting"
 import { useEffect, useState } from "react"
 
-function Shops() {
+function Shop() {
   const [showFilter, setShowFilter] = useState(false);
   const [filter, _] = useFilter();
   const [sort, __] = useSorting();
@@ -64,4 +64,4 @@ function Shops() {
   )
 }
 
-export default Shops
+export default Shop

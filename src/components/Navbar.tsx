@@ -34,7 +34,7 @@ export default function Navbar(props:NavbarProps) {
     <div className="fixed top-0 left-0 w-full z-10">
     <div className={`bg-primary text-xs md:text-sm transition-all ${scrollData.direction == ScrollDirection.DOWN && scrollData.postion.y > 0 ? 'h-0 p-0' : "p-1"}`}>
         <div className="flex gap-1 items-center justify-between max-w-4xl mx-auto">
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 items-center hide-child-svg">
                 <FaRegClock/>
                 <p>Mon - Fri: <time className="font-bold">9:00am - 9:00pm</time></p>
                 <span> | </span>

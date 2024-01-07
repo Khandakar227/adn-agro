@@ -79,8 +79,27 @@
         height: 2px;
         @apply bg-primary-light;
     }
+    .hide-child-svg > svg {
+        @apply hidden md:block;
+    }
+    .hide-arrows {
+        @apply appearance-none;
+    } 
+    .hide-arrows[type='number'] {
+        appearance: textfield;
+        -moz-appearance:textfield;
+    }
+    .hide-arrows::-webkit-outer-spin-button,
+    .hide-arrows::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
 }
 
 .filter-sidebar {
     @apply h-screen md:h-auto top-0 left-0 right-0 bottom-0 fixed md:static z-20 md:z-0;
+}
+
+
+.active-product-image {
+    border: 2px solid #3AAA35;
 }

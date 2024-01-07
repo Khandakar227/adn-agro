@@ -16,10 +16,10 @@ export default function BreadCrumb() {
     <div className="p-2 text-text-medium mx-auto max-w-4xl text-sm">
         <Link href={"/"}>Home</Link>
         {
-            routePaths.map(link =>
+            routePaths.map((link, i) =>
                 <div className="contents" key={link}>
                     <span className="px-1"> | </span>
-                    <Link href={"/"+link}>{capitalize(link)}</Link>
+                    <Link href={"/"+ routePaths.slice(0, i + 1).join('/')}>{decodeURIComponent(capitalize(link))}</Link>
                 </div>
             )
         }

@@ -14,7 +14,7 @@ type NavbarProps = {
 
 const navlinks = [
     { label: "Home", href: "/" },
-    { label: "Shops", href: "/shops" },
+    { label: "Shop", href: "/shop" },
     { label: "Pages", href: "/pages" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
